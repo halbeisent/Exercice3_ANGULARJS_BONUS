@@ -1,0 +1,9 @@
+<!--Le ng-repeat nous permet ici d'afficher les détails du mail pour un sujet-->
+<div ng-repeat="mail in mailContent | filter: {subject: subjectName}">
+  <p>Détails du mail ayant pour sujet {{subjectName}}</p>
+  <p>Nom: {{mail.name}}</p>
+  <p>Email: {{mail.email}}</p>
+  <p>Sujet: {{mail.subject}}</p>
+  <p>Message: {{mail.message}}</p>
+  <a href="#!/">Composer un autre mail</a>
+</div>

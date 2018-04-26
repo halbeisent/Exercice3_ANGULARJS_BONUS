@@ -1,0 +1,30 @@
+<div>
+  <ng-form name="idForm">
+      <legend>Message</legend>
+      <label for="name">Nom: </label><input type="text" name="name" id="name" ng-model="name" ng-required="true" /><br />
+      <label for="email">Email: </label><input type="email" name="email" id="email" ng-model="email" ng-required="true" /><br />
+      <label for="subject">Sujet: </label><input type="text" name="subject" id="subject" ng-model="subject" ng-required="true" /><br />
+      <label for="message">Message: </label><textarea rows="10" cols="30" name="message" id="message" ng-model="message" ng-required="true"></textarea><br />
+      <div ng-show="idForm.name.$error.required" ng-class="{'inputFail':true}">
+        Veuillez entrer un nom!
+      </div>
+      <div ng-show="idForm.subject.$error.required" ng-class="{'inputFail':true}">
+        Veuillez entrer un sujet!
+      </div>
+      <div ng-show="idForm.input.$error.email" ng-class="{'inputFail':true}">
+        Votre saisie est incorrecte!
+      </div>
+      <div ng-show="idForm.email.$error.required" ng-class="{'inputFail':true}">
+        Veuillez entrer une adresse mail!
+      </div>
+      <div ng-show="idForm.message.$error.required" ng-class="{'inputFail':true}">
+        Veuillez entrer un message!
+      </div>
+      <button ng-disabled="idForm.$invalid" id="mailSend" ng-click="mailSend()">Envoyer</button>
+  </ng-form>
+    <legend>Historique</legend>
+    <ul>
+      <!--Le ng-repeat ici nous permet d'afficher la liste des sujets et de créer une vue en fonction de celui-ci-->
+      <li ng-repeat="name in mailContent"><a ng-href="#!/{{name.subject}}">{{name.subject}}</a></li>
+    </ul>
+</div>
